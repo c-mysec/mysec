@@ -1,0 +1,57 @@
+<p>config works!</p>
+<form [formGroup]="configForm" (ngSubmit)="onSubmit()">
+
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Node Name</mat-label>
+      <input matInput placeholder="Device" formControlName="nodeName" maxlength="15">
+      <mat-hint>Give a simple name</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>User Name</mat-label>
+      <input matInput placeholder="Name" formControlName="userName" maxlength="15">
+      <mat-hint>Local user name</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="" formControlName="password" maxlength="15">
+      <mat-hint>Local user password</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Iot Id</mat-label>
+      <input matInput placeholder="Iot" formControlName="iotName" maxlength="15">
+      <mat-hint>Iot login Id registered in Mysec System</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Iot Password</mat-label>
+      <input matInput placeholder="" formControlName="iotPassword" maxlength="15">
+      <mat-hint>Iot Password registered in Mysec System</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Iot Endpoint</mat-label>
+      <input matInput placeholder="a2g89lg5mw80c9-ats.iot.us-east-1.amazonaws.com" formControlName="iotEndpoint" maxlength="63">
+      <mat-hint>Find this Endpoint in Mysec System</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Iot Topic</mat-label>
+      <input matInput placeholder="" formControlName="iotTopic" maxlength="63">
+      <mat-hint>Leave this empty if you don't know</mat-hint>
+    </mat-form-field>
+  </p>
+  <div style="align-items: right;">
+    <button mat-raised-button color="primary" type="submit" style="float:right">Save</button>
+    <button mat-raised-button color="warn" onclick="reset()" style="float:right">Reset</button>
+  </div>
+</form>
