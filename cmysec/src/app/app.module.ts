@@ -11,12 +11,14 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 
 import { ConfigComponent } from './config/config.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SetupComponent,
-    ConfigComponent
+    ConfigComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
