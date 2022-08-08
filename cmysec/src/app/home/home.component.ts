@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   connectedCloud : boolean;
-
+  loginOrRegister : boolean;
   constructor() {
     this.connectedCloud = false;
+    this.loginOrRegister = true;
   }
 
   ngOnInit(): void {

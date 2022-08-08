@@ -1,5 +1,9 @@
 <p>home works!</p>
-<div *ngIf="!connectedCloud" class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<mat-button-toggle-group *ngIf="!connectedCloud" name="favoriteColor" aria-label="Favorite Color">
+  <mat-button-toggle value="red">Log in</mat-button-toggle>
+  <mat-button-toggle value="green">Register</mat-button-toggle>
+</mat-button-toggle-group>
+<div *ngIf="!connectedCloud && connectedCloud" class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
   <mat-card class="box">
     <mat-card-header>
       <mat-card-title>Log in</mat-card-title>
@@ -17,7 +21,7 @@
     </form>
   </mat-card>
 </div>
-<div *ngIf="!connectedCloud" class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div *ngIf="!connectedCloud  && !connectedCloud" class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
   <mat-card class="box">
     <mat-card-header>
       <mat-card-title>Register</mat-card-title>
