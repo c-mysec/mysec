@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { LocaldataService } from '../services/localdata.service'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
   loginOrRegister : boolean;
   constructor() {
     this.connectedCloud = false;
-    this.loginOrRegister = true;
+    this.loginOrRegister = false;
   }
 
   ngOnInit(): void {
