@@ -1,44 +1,55 @@
-<p>home works!</p>
-<mat-button-toggle-group *ngIf="!connectedCloud" name="favoriteColor" aria-label="Favorite Color">
-  <mat-button-toggle value="red">Log in</mat-button-toggle>
-  <mat-button-toggle value="green">Register</mat-button-toggle>
-</mat-button-toggle-group>
-<div *ngIf="!connectedCloud && connectedCloud" class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div *ngIf="!identified" class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title (click)="redir()" style="cursor:pointer;color:blue;text-decoration:underline;margin-top:20px">You need to log in or register</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>
+<div *ngIf="identified && !connectedCloud && loginOrRegister" class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
   <mat-card class="box">
     <mat-card-header>
       <mat-card-title>Log in</mat-card-title>
     </mat-card-header>
-    <form class="myform">
+    <form class="myform" [formGroup]="loginForm" (ngSubmit)="onSignIn()">
       <mat-card-content>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Username" maxlength="16">
+          <input matInput placeholder="Username" maxlength="16" formControlName="username">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Password" maxlength="16" type="password">
+          <input matInput placeholder="Password" maxlength="16" type="password" formControlName="password">
         </mat-form-field>
       </mat-card-content>
-      <button mat-stroked-button color="accent" class="btn-block">Log in</button>
+      <div>
+        <button mat-stroked-button color="accent" class="btn-block">Log in</button>
+        <small (click)="loginOrRegister=false" style="float:right">Register</small>
+      </div>
     </form>
   </mat-card>
 </div>
-<div *ngIf="!connectedCloud  && !connectedCloud" class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div *ngIf="identified && !connectedCloud  && !loginOrRegister" class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
   <mat-card class="box">
     <mat-card-header>
       <mat-card-title>Register</mat-card-title>
     </mat-card-header>
-    <form class="myform">
+    <form class="myform" [formGroup]="signupForm" (ngSubmit)="onSignup()">
       <mat-card-content>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Username">
+          <input matInput placeholder="Username" formControlName="username" maxlength="31">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Email">
+          <input matInput placeholder="email@email.com" formControlName="email" maxlength="63">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Password">
+          <input matInput placeholder="Password" maxlength="31" type="password" formControlName="password">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Password" maxlength="31" type="password" formControlName="password2">
         </mat-form-field>
       </mat-card-content>
-      <button mat-stroked-button color="accent" class="btn-block">Register</button>
+      <div>
+        <button mat-stroked-button color="accent" class="btn-block">Register</button>
+        <small (click)="loginOrRegister=true" style="float:right">Login</small>
+      </div>
     </form>
   </mat-card>
 </div>

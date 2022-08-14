@@ -25,28 +25,35 @@
   <p>
     <mat-form-field appearance="standard">
       <mat-label>Iot Id</mat-label>
-      <input matInput placeholder="Iot" formControlName="iotName" maxlength="15">
+      <input matInput placeholder="Iot" formControlName="iotName" maxlength="31">
       <mat-hint>Iot login Id registered in Mysec System</mat-hint>
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="standard">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="email@email.com" formControlName="email" maxlength="63">
+      <mat-hint>Email registered in Mysec System</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
       <mat-label>Iot Password</mat-label>
-      <input matInput placeholder="" formControlName="iotPassword" maxlength="15">
+      <input matInput placeholder="" formControlName="iotPassword" maxlength="31">
       <mat-hint>Iot Password registered in Mysec System</mat-hint>
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="standard">
       <mat-label>Iot Endpoint</mat-label>
-      <input matInput placeholder="a2g89lg5mw80c9-ats.iot.us-east-1.amazonaws.com" formControlName="iotEndpoint" maxlength="63">
+      <input matInput placeholder="a2g89lg5mw80c9-ats.iot.us-east-1.amazonaws.com" formControlName="iotEndpoint" maxlength="127">
       <mat-hint>Find this Endpoint in Mysec System</mat-hint>
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="standard">
       <mat-label>Iot Topic</mat-label>
-      <input matInput placeholder="" formControlName="iotTopic" maxlength="63">
+      <input matInput placeholder="" formControlName="iotTopic" maxlength="127">
       <mat-hint>Leave this empty if you don't know</mat-hint>
     </mat-form-field>
   </p>

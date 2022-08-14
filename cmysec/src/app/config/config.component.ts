@@ -30,7 +30,8 @@ Iot out topic
     iotName: '',
     iotPassword: '',
     iotEndpoint: '',
-    iotTopic: ''
+    iotTopic: '',
+    email: ''
   });
 
   constructor(private formBuilder: FormBuilder) { }
