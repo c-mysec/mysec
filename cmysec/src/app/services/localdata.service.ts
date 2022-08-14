@@ -41,6 +41,9 @@ export class LocaldataService {
   isConnected() : boolean {
     return this.connected;
   }
+  setConnected() {
+    this.connected = true;
+  }
   isLocal(deviceName : string) : boolean {
     let a = this.localDevices.get(deviceName);
     return a ?? false;
