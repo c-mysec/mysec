@@ -5,51 +5,15 @@
     </mat-card-header>
   </mat-card>
 </div>
-<div *ngIf="identified && !connectedCloud && loginOrRegister" class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-  <mat-card class="box">
+<div *ngIf="identified" class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box" *ngFor="let dev of user?.devices">
     <mat-card-header>
-      <mat-card-title>Log in</mat-card-title>
+      <mat-card-title>{{dev.name}}</mat-card-title>
     </mat-card-header>
-    <form class="myform" [formGroup]="loginForm" (ngSubmit)="onSignIn()">
       <mat-card-content>
-        <mat-form-field class="full-width">
-          <input matInput placeholder="Username" maxlength="16" formControlName="username">
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <input matInput placeholder="Password" maxlength="16" type="password" formControlName="password">
-        </mat-form-field>
+        <ul>
+          <li *ngFor="let item of dev.switches">{{item.name}}</li>
+        </ul>
       </mat-card-content>
-      <div>
-        <button mat-stroked-button color="accent" class="btn-block">Log in</button>
-        <small (click)="loginOrRegister=false" style="float:right">Register</small>
-      </div>
-    </form>
-  </mat-card>
-</div>
-<div *ngIf="identified && !connectedCloud  && !loginOrRegister" class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-  <mat-card class="box">
-    <mat-card-header>
-      <mat-card-title>Register</mat-card-title>
-    </mat-card-header>
-    <form class="myform" [formGroup]="signupForm" (ngSubmit)="onSignup()">
-      <mat-card-content>
-        <mat-form-field class="full-width">
-          <input matInput placeholder="Username" formControlName="username" maxlength="31">
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <input matInput placeholder="email@email.com" formControlName="email" maxlength="63">
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <input matInput placeholder="Password" maxlength="31" type="password" formControlName="password">
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <input matInput placeholder="Password" maxlength="31" type="password" formControlName="password2">
-        </mat-form-field>
-      </mat-card-content>
-      <div>
-        <button mat-stroked-button color="accent" class="btn-block">Register</button>
-        <small (click)="loginOrRegister=true" style="float:right">Login</small>
-      </div>
-    </form>
   </mat-card>
 </div>

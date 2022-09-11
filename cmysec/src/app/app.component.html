@@ -32,11 +32,11 @@
 
 <div class="content" role="main">
   <mat-tab-group mat-align-tabs="start">
-    <mat-tab label="Home"> <app-home></app-home> </mat-tab>
-    <mat-tab label="Config" [disabled]="true"> <app-config></app-config> </mat-tab>
-    <mat-tab label="Dashboard" [disabled]="true"> Content 2 </mat-tab>
-    <mat-tab label="RF Buttons" [disabled]="true"> Content 3 </mat-tab>
-    <mat-tab label="RF Switches" [disabled]="true"> Content 3 </mat-tab>
+    <mat-tab label="Home"> <app-home #home></app-home> </mat-tab>
+    <mat-tab label="Config" [disabled]="!home.identified"> <app-config></app-config> </mat-tab>
+    <mat-tab label="Dashboard" [disabled]="!home.identified"> Content 2 </mat-tab>
+    <mat-tab label="RF Buttons" [disabled]="!home.identified"> Content 3 </mat-tab>
+    <mat-tab label="RF Switches" [disabled]="!home.identified"> Content 3 </mat-tab>
   </mat-tab-group>
   <!--
     - mudar estrutura dynamo para conter mais de 1 device por usuário e as chaves ficam por device, mas o alexa encherga apenas os controls, por isso os nomes dos controls devem ser únicos por usuário

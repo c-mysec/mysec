@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { UserItem } from '../common/user-item';
+import { LocaldataService } from '../services/localdata.service'
 @Component({
   selector: 'app-config',
   templateUrl: './config.component.html',
@@ -33,9 +35,9 @@ Iot out topic
     iotTopic: '',
     email: ''
   });
+  //user : UserItem;
 
-  constructor(private formBuilder: FormBuilder) { }
-
+  constructor(private formBuilder: FormBuilder, private localService : LocaldataService) { }
   ngOnInit(): void {
   }
   onSubmit(): void {

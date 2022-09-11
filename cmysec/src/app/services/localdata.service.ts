@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { User } from '../common/user';
+import { UserItem } from '../common/user-item';
 import { CryptoService } from './crypto.service';
 @Injectable({
   providedIn: 'root'
 })
 export class LocaldataService {
-  private user : User;
+  private user : UserItem;
   private salt : CryptoJS.lib.WordArray;
   private connected : boolean; // connected to cloud
   private localDevices : Map<string, boolean>; // for each device name, show if we can contact it
@@ -18,11 +18,10 @@ export class LocaldataService {
       this.user = JSON.parse(u);
     } else {
       this.user = {
-        cloud : '',
+        name : '',
         devices: [],
-        endpoint: '',
-        password: '',
-        username: ''
+        email: '',
+        credit: 0
       };
       this.salt = this.crypto.genSalt();
       let ssalt = this.crypto.getString(this.salt);
@@ -31,10 +30,10 @@ export class LocaldataService {
     this.connected = false;
     this.localDevices = new Map();
 }
-  getUser() : User {
+  getUser() : UserItem {
     return this.user;
   }
-  setUser(u : User) {
+  setUser(u : UserItem) {
     let e = this.crypto.encrypt(JSON.stringify(u));
     localStorage.setItem('userdata', e);
   }
@@ -49,28 +48,3 @@ export class LocaldataService {
     return a ?? false;
   }
 }
-/*
-
-user:
-  username:
-  password:
-  endpoint:
-  cloud:
-  devices:
-    - home:
-      name:
-      password:
-      topic:
-      controls:
-        - hall
-        - kitchen one
-        - kitchen two
-        - gabi room
-        - bedroom
-        - living room
-        - niche
-        - balcony
-        - dining
-        - laudry
-        - toilet
-*/
